@@ -1,4 +1,4 @@
-# ARC-LENGTH PARAMETERISATION
+# Arc-Length Parameterisation
 *Don Williamson (@donzanoid) 4 August, 2002*
 
 Well, I'm in southern France having a whale of a time on a camp-site in beautiful weather,
