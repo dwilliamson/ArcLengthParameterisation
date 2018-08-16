@@ -19,7 +19,6 @@ parameters interpolate over any given type of curve.
 </p>
 
 ## Program key
----
 
 The columns down the left of the screen display the arc-length/parameter pairs in
 the adaptive or fixed tables. The values on the right are the various arc-lengths and
@@ -33,7 +32,6 @@ function which provides constant velocity within parametric bounds.
 The different parameterisation methods are discussed below.
 
 ## Fixed-size table lookup
----
 
 Step along the curve at fixed intervals sampling the points. For each point you sample
 store it's parametric value along with distance from the beginning of the curve in a
@@ -51,7 +49,6 @@ such as the hunt function in Numerical Recipes, but only if you're following the
 rather than picking random points on it.
 
 ## Adaptive-size table lookup
----
 
 A fixed-size table will undersample areas of high non-linearity and invest wasted time
 in oversampling highly linear areas. Use recursive subdivision to generate a table that
@@ -65,7 +62,6 @@ Mapping from arc-length to parameter value is exactly the same as doing it for a
 size table.
 
 ## Numerical integration techniques
----
 
 The arc-length integral:
 
@@ -76,21 +72,18 @@ the integral. Mapping from parameter value to arc-length can be done in a number
 including the following (all in the source):
 
 ## Extended trapezoidal rule
----
 
 Very basic sampling of the function to be integrated at evenly spaced intervals
 with non-varying weights. Can be done using a fixed interval size or adaptive
 sample size through recursive refinement of the approximation.
 
 ## Simpson's rule
----
 
 A simple extension of the trapezoidal rule where the approximation is calculated
 in pairs of sucsessive trapezoidal refinements, and weighted so as to cancel out
 the leading error term introduced by the first pass.
 
 ## Romberg integration
----
 
 Simpsons rule is a special case of romberg integration, which is used for
 integration schemes that are of a higher order than Simpson's rule. Polynomial
@@ -98,7 +91,6 @@ extrapolation is used to cancel out leading error terms, of which, the pair
 approach in Simpson's rule is again a special case.
 
 ## Lagrange polynomial interpolation
----
 
 For every point set containing N points there exists a unique polynomial of
 order N-1 that interpolates through those points (e.g. for 2 points there
@@ -107,14 +99,12 @@ force algorithm will evaluate that polynomial at any given point, given
 the point list.
 
 ## Neville Polynomial interpolation
----
 
 An improvement on lagrange which recursively works up from polynomials of
 zero'th order to the desired order. Much faster than lagrange, and provides
 an error estimate as a result of the interpolation/extrapolation.
 
 ## Gaussian quadrature
----
 
 Uses unevenly spaced intervals in an attempt to get the greatest accuracy using
 the smallest number of function evaluations. Hence this is a very efficient
@@ -133,7 +123,6 @@ The iteration converges very quickly on the root and requires little calculation
 iteration.
 
 ## Adaptive gaussian quadrature
----
 
 Gaussian quadrature, just like fixed-size table lookups, is capable of oversampling and
 undersampling. This can be solved by using an adaptive gaussian method. Build an
@@ -152,7 +141,6 @@ techniques since the arc-length integral needs to be evaluated at each iteration
 it an already adaptive evaluation.
 
 ## Final notes
----
 
 The most accurate combination I've found is adaptive gaussian quadrature for mapping
 parameter to arc-length, combined with newton-raphson iteration for mapping arc-length
